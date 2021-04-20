@@ -1,21 +1,49 @@
 <ion-header>
-  <ion-segment (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="friends">
-      <ion-label>Tất cả</ion-label>
+  <h3>Tin nhắn</h3>
+  <ion-segment
+    mode="md"
+    [value]="1"
+    color="warning"
+    (ionChange)="segmentChanged($event)"
+  >
+    <ion-segment-button value="1">
+      <ion-label class="segment_label">Tất cả</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="enemies">
-      <ion-label>Chưa đọc</ion-label>
+    <ion-segment-button value="2">
+      <ion-label class="segment_label">Chưa đọc</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="enemies">
-      <ion-label>Đã đọc</ion-label>
+    <ion-segment-button value="3">
+      <ion-label class="segment_label">Đã đọc</ion-label>
     </ion-segment-button>
   </ion-segment>
 </ion-header>
 
-<ion-content> 
+<ion-content>
   <ion-list>
-    <ion-item>
-      
+    <ion-item lines="none" [routerLink]="['/tabs/message/detail-message','1']">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-align-self-center" size="3">
+            <ion-avatar>
+              <img
+                [style.height.px]="70"
+                src="assets/avatar/IMG_20200908_165412.png"
+                alt=""
+                srcset=""
+              />
+            </ion-avatar>
+          </ion-col>
+          <ion-col class="ion-align-self-center" size="7">
+            <ion-label [style.margin-top.px]="30">1212321</ion-label>
+
+            <p>sakfdslkfhn</p>
+          </ion-col>
+          <ion-col class="ion-align-self-center" size="2">
+            <p>5:10</p>
+            <ion-badge color="warning">12</ion-badge>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-item>
   </ion-list>
 </ion-content>

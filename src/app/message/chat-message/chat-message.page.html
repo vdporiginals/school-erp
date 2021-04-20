@@ -1,9 +1,162 @@
-<ion-header>
+<div class="wrapper_chat">
+  <ion-header>
+    <ion-grid>
+      <ion-row class="header">
+        <ion-col size="2" class="header-back">
+          <!-- <app-back-button [defaultHref]="'/main/message'"></app-back-button> -->
+        </ion-col>
+        <ion-col size="8">
+          <ion-label class="header-box">
+            <ion-avatar slot="start" class="header-box-avatar">
+              <img [src]="currentAvatar" />
+            </ion-avatar>
+            <ion-text class="header-box-name"> {{currenName}} </ion-text>
+          </ion-label>
+        </ion-col>
+        <ion-col size="2"></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-header>
+  <!-- chat -->
+  <div class="chat">
+    <ion-content #messageContainer [scrollEvents]="true">
+      <ion-list #listMessageParent>
+        <!-- <ion-list-header>
+          <ion-label>
+            <ion-text> 20/12/2020 </ion-text>
+          </ion-label>
+        </ion-list-header> -->
+        <!-- message-customer -->
+        <!-- <ng-template
+          ngFor
+          let-i="index"
+          let-item="item"
+          let-contact
+          [ngForOf]="listHistory | async"
+        >
+        </ng-template> -->
+        <ng-template
+          ngFor
+          let-item
+          let-i="index"
+          [ngForOf]="listHistory | async"
+        >
+          <app-message-text
+            [item]="item"
+            [index]="i"
+            [searchTextString]="searchTextString"
+          ></app-message-text>
+        </ng-template>
+        <ng-template
+          ngFor
+          let-item
+          let-i="index"
+          [ngForOf]="unSendMessage$ | async"
+        >
+          <app-message-text
+            [item]="item"
+            [index]="i"
+            [searchTextString]="searchTextString"
+          ></app-message-text>
+        </ng-template>
+        <div #wrapperMessage></div>
+        <!-- <ion-item *ngFor="let item of listHistory |async;let i = index">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="2">
+                <ion-label>
+                  <ion-avatar slot="start" *ngIf="item.IsMine == false">
+                    <img [src]="item.SenderMediaURL" />
+                  </ion-avatar>
+                </ion-label>
+              </ion-col>
+              <ion-col
+                size="10"
+                [class]="item.IsMine === false ? 'message-customer': 'message-root'"
+              >
+                <ion-text
+                  [class]="item.IsMine == false ? 'ms-customer': 'ms-root'"
+                >
+                  <p
+                    appHighlight
+                    [textIndex]="i"
+                    [content]="item.Content"
+                    [searchTerm]="searchTextString"
+                    [caseSensitive]="false"
+                  >
+                    {{item.Content}}
+                  </p>
+                </ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item> -->
+      </ion-list>
+    </ion-content>
+  </div>
+  <!-- input message -->
   <ion-toolbar>
-    <ion-title>chat-message</ion-title>
+    <ion-grid>
+      <!-- <form action=""></form> -->
+      <ion-row class="input">
+        <ion-col size="7" class="input-messsage">
+          <ion-textarea
+            placeholder="Nhập tin nhắn"
+            rows="1"
+            [(ngModel)]="textAreaInput"
+          >
+          </ion-textarea>
+
+          <!-- <div class="input-message-file">
+              <label for="file">
+                <img
+                  (click)="fileImage1.click()"
+                  class="input-message-file-icon"
+                  src="assets/img-message/file.svg"
+                  
+                />
+                <input
+                  type="file"
+                  #fileImage1
+                  id="fileImage1"
+                  hidden
+                  accept="image/*"
+                  (change)="fileImage(fileImage1.files)"
+                />
+              </label>
+            </div> -->
+        </ion-col>
+        <!-- <ion-col size="1" class="input-file" (click)="fileImage1.click()">
+          <img src="assets/icon/chat/image.svg" alt="" />
+          <input
+            type="file"
+            #fileImage1
+            id="fileImage1"
+            hidden
+            accept="image/*"
+            (change)="selectImage(fileImage1.files,3)"
+          />
+        </ion-col> -->
+        <ion-col size="1" class="input-file" (click)="fileImage2.click()">
+          <img src="assets/icon/chat/school-paper-clip.svg" alt="" />
+          <input
+            type="file"
+            #fileImage2
+            id="fileImage2"
+            hidden
+            accept=".csv,.xlxs,.txt,.pdf,.doc,.docx,text/plain,application/pdf,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          />
+        </ion-col>
+
+        <ion-col size="3" class="input-sent">
+          <button
+            (click)="sendMessage(1)"
+            [class]="textAreaInput?.length === 0 || isSended === false ? '' : 'active'"
+          >
+            Gửi
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+</div>

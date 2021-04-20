@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ListMessagePageRoutingModule } from './list-message-routing.module';
 
 import { ListMessagePage } from './list-message.page';
+import { ChatMessagePage } from '../chat-message/chat-message.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListMessagePageRoutingModule
+    ListMessagePageRoutingModule,
   ],
-  declarations: [ListMessagePage]
+  declarations: [ListMessagePage],
 })
 export class ListMessagePageModule {}

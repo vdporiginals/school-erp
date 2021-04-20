@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ChatMessagePage } from './chat-message/chat-message.page';
 
 import { MessagePage } from './message.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: MessagePage
+    component: MessagePage,
+    children: [],
   },
   {
     path: 'list-message',
-    loadChildren: () => import('./list-message/list-message.module').then( m => m.ListMessagePageModule)
+    loadChildren: () =>
+      import('./list-message/list-message.module').then(
+        (m) => m.ListMessagePageModule
+      ),
   },
   {
-    path: 'chat-message',
-    loadChildren: () => import('./chat-message/chat-message.module').then( m => m.ChatMessagePageModule)
-  }
+    path: 'detail-message/:id',
+    component: ChatMessagePage,
+  },
 ];
 
 @NgModule({
