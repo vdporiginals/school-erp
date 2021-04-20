@@ -1,0 +1,39 @@
+<app-hearder-evaluete [(config)]="configHeader"></app-hearder-evaluete>
+<div class="scroll-page">
+    <div
+        class="item"
+        *ngFor="let i of listEvaluate"
+    >
+        <ion-row>
+            <ion-col size="6">
+                {{i?.date | date:'dd/MM/YYYY'}}
+            </ion-col>
+            <ion-col size="6">
+                <div [class]="i.status === true ? 'style-active' : 'style-active2'">
+                    {{i?.status ? 'Chờ phê duyệt' :'Đã phê duyệt'}}
+                </div>
+            </ion-col>
+            <ion-col size="6">
+                Nghỉ từ:
+            </ion-col>
+            <ion-col size="6">
+                {{i?.startDate | date:'hh:mm dd/MM/YYYY'}}
+            </ion-col>
+            <ion-col size="6">
+                Đến:
+            </ion-col>
+            <ion-col size="6">
+                {{i?.endDate | date:'hh:mm dd/MM/YYYY'}}
+            </ion-col>
+            <ion-col size="6">
+                {{i?.startDate | date:'dd/MM/YYYY'}}
+            </ion-col>
+            <ion-col size="12">
+                Lý do
+            </ion-col>
+            <ion-col size="12">
+                {{i?.note}}
+            </ion-col>
+        </ion-row>
+    </div>
+</div>

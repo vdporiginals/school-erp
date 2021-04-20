@@ -1,0 +1,34 @@
+<app-hearder-evaluete [(config)]="configHeader"></app-hearder-evaluete>
+<div class="form-create">
+    <ion-item>
+        <ion-label>Ngày bắt đầu:</ion-label>
+        <ion-datetime
+            display-format="HH:mm DD/MM/YYYY"
+            picker-format="HH:mm DD/MM/YYYY"
+            value="1990-02-19T07:43Z"
+        ></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>Ngày kết thúc:</ion-label>
+        <ion-datetime
+            display-format="HH:mm DD/MM/YYYY"
+            picker-format="HH:mm DD/MM/YYYY"
+            value="2020-02-19T07:43Z"
+        ></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked">Lý do:</ion-label>
+        <ion-textarea placeholder="Nhập lí do"></ion-textarea>
+    </ion-item>
+    <div class="group-btn">
+        <button class="btn-cancel">
+            Hủy bỏ
+        </button>
+        <button
+            class="btn-save"
+            (click)="onSave()"
+        >
+            Nộp đơn
+        </button>
+    </div>
+</div>
