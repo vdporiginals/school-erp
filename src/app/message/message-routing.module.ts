@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: MessagePage
+  },
+  {
+    path: 'list-message',
+    loadChildren: () => import('./list-message/list-message.module').then( m => m.ListMessagePageModule)
+  },
+  {
+    path: 'chat-message',
+    loadChildren: () => import('./chat-message/chat-message.module').then( m => m.ChatMessagePageModule)
   }
 ];
 
