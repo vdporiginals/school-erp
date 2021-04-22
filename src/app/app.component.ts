@@ -7,5 +7,5 @@ import { TabsService } from './tabs/tabs.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(public tabs: TabsService) {}
+  constructor() {}
 }

@@ -7,11 +7,13 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['./list-message.page.scss'],
 })
 export class ListMessagePage implements OnInit {
+  lastMessage: any;
   constructor(private messageService: MessageService) {}
 
   ngOnInit() {
-    this.messageService.getListMessage().subscribe((res) => {
+    this.messageService.getListMessage().subscribe((res: any) => {
       console.log(res);
+      this.lastMessage = res.body.Payload[res.body.Payload.length - 1];
     });
   }
 

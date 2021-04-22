@@ -183,14 +183,18 @@ export class ChatMessagePage implements OnInit {
     //   );
     // }
 
-    this.messageService.getHistoryMes(id).subscribe((res) => {
-      res.forEach((val) => {
-        this.listRendererId.push(val.MessageId);
-      });
-      this.listHistory.next(res);
-      // this.loading.closeLoading();
-      // console.log(this.listHistory.getValue());
+    this.messageService.getListMessage().subscribe((res: any) => {
+      // res.forEach((val) => {
+      //   this.listRendererId.push(val.MessageId);
+      // });
+      console.log(res.body.Payload);
+
+      this.listHistory.next(res.body.Payload);
     });
+    // this.messageService.getHistoryMes(id).subscribe((res) => {
+    //   // this.loading.closeLoading();
+    //   // console.log(this.listHistory.getValue());
+    // });
     return true;
   }
 
@@ -215,16 +219,16 @@ export class ChatMessagePage implements OnInit {
         message: content,
         createdOn: curDate,
         type,
-        recipientUserProfileId: this.currentSenderId.getValue(),
+        userProfileId: this.currentSenderId.getValue(),
       })
     );
 
     this.socketService.sendMessage({
       action: 'sendMessage',
       message: content,
-      // createdOn: curDate,
-      type,
-      recipientUserProfileId: this.currentSenderId.getValue(),
+      createdOn: curDate,
+      // type,
+      userProfileId: '2323',
     });
 
     setTimeout(() => {

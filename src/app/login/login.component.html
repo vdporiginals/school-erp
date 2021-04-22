@@ -1,0 +1,53 @@
+<ion-content>
+  <div
+    class="login-container"
+  >
+    <div class="login-body">
+      <h4 class="title">ĐĂNG NHẬP</h4>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <input
+            required
+            formControlName="username"
+            OnlyNumber="true"
+            class="form-control"
+            type="text"
+            placeholder="Số điện thoại"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              loginForm.get('username').touched &&
+              loginForm.get('username').errors?.required
+            "
+          >
+            Cần nhập Số điện thoại
+          </span>
+        </div>
+        <div class="form-group">
+          <input
+            autocomplete="on"
+            required
+            formControlName="password"
+            class="form-control"
+            [type]="'password'"
+            placeholder="Mật khẩu"
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              loginForm.get('password').touched &&
+              loginForm.get('password').errors?.required
+            "
+          >
+            Cần nhập mật khẩu
+          </span>
+        </div>
+
+        <div class="submit">
+          <button class="button-primary">Đăng nhập</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
