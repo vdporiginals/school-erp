@@ -10,6 +10,7 @@ import {
   tap,
 } from 'rxjs/operators';
 import { webSocket } from 'rxjs/webSocket';
+import { LocalStorageService } from 'src/app/storage/localstorage.service';
 import { environment } from 'src/environments/environment';
 import { StorageService } from './storage.service';
 
@@ -23,7 +24,7 @@ export const RECONNECT_INTERVAL = environment.reconnectInterval;
 })
 export class SocketService {
   private socket$;
-  private accessToken = this.storage.getUserToken().access_token;
+  private accessToken: any = this.storage.getToken();
   private messagesSubject$: BehaviorSubject<any[]> = new BehaviorSubject([]);
   public messages$ = this.messagesSubject$.pipe(
     switchMap((data: any) => from(data)),
@@ -33,7 +34,7 @@ export class SocketService {
     })
   );
 
-  constructor(private storage: StorageService) {}
+  constructor(private storage: LocalStorageService) {}
 
   /**
    * Creates a new WebSocket subject and send it to the messages subject
@@ -84,7 +85,7 @@ export class SocketService {
    */
   private getNewWebSocket() {
     return webSocket({
-      url: `${WS_ENDPOINT}`,
+      url: `${WS_ENDPOINT}?Authorization=${this.accessToken.access_token}`,
       // url: `wss://hbd51up8a8.execute-api.us-east-2.amazonaws.com/production?Authorization=5uJXjVH3BrOMxZGp_F4XrUj3Xg-8xhkYA8JA95HrdAO3Miy15IrWvFBA2Ui9x5HR2GuimTF4JuOE3-Lt93VqSdVgMog-hMBX9-PjD3vjg8oS7eTj10eEXY36lTX6dZkEAUUivyvfjxuydXIcRCuOaSqvQTZprrussdHkIVLnMQCnOZ5o5PkvmwOCT4GL6oXZF4mgIZNoV3XQxhHz4KfROOuSJmVSz9CXMlYnNoDSZFOvrRO1VwapSndAMSwD1l2bUB0pk3EpNLTCU380xdHmpUrf3nHvTYlVYdZbyAtNPEtknNWSkkXkL36HJ0P9pjLs77GXUGOpenhNSgAGpWU3HRGfOS7oIqzgBVvDc98T-dm_P7TeIzkxiPQd3i8btaFxXa3rXXaKikPo8Wuin9usi28qFl2EEe6fNNzA1qDEBFgd3f-Us32qJw59lqQRrTfSkT6QskNBDdzzUIUBaJGgP2dEIlXxvCKIu00rsNKDEdeAn0ZiWPTRFBzm-8zIC8AsFIrFmvBB8b5VHBU9ya1RpQrZCTc6jMfVHfqY6KVVoHjVeUF4GcxZF1cS6R_tiyK0FwBUS8jPPFPE4xmwyKyvvjCtpdO6QT-DLPDwSmAQPKEjBViDQVy-Dmz-fuwnuLHT`,
       openObserver: {
         next: () => {

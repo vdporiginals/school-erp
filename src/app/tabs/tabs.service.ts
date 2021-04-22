@@ -59,7 +59,7 @@ export class TabsService {
 
     const page = pageUrl.split('?')[0];
     console.log(pageUrl);
-    
+
     // Result: new-group
     // Check if it's a routeParamPage that we need to hide on
     const hideParamPage = this.routeParamPages.indexOf(pageUrlParent) > -1;

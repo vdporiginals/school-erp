@@ -1,0 +1,78 @@
+.login-container {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .login-body {
+      position: relative;
+  
+      top: 30%;
+      height: 70%;
+      width: 100%;
+      text-align: center;
+      .title {
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  
+    .action {
+      width: 90%;
+      text-align: end;
+      margin-top: 1.2em;
+      a {
+        font-size: 0.8em;
+      }
+    }
+  
+    .submit {
+      margin-top: 1.2em;
+      button {
+        width: 8rem;
+        height: 3rem;
+      }
+    }
+    .login-option {
+      margin-top: 1.5em;
+      a {
+        font-size: 0.8em;
+        text-decoration: none;
+      }
+  
+      .no-account {
+        font-size: 0.8em;
+        margin-top: 1.5em;
+        span {
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+  }
+  form {
+    margin-top: 1.5em;
+    .form-group {
+      margin-top: 1.2em;
+      input {
+        width: 80%;
+        padding: 1.2em 0.8em;
+        box-shadow: 0 1px 5px var(--ion-color-box-shadow-lighter);
+        border: 0.2px solid var(--ion-border-input);
+        border-radius: 10px;
+        font-size: 0.8em;
+      }
+      .passwordIcon {
+        font-size: 1.1em !important;
+        position: absolute !important;
+        top: 8.5em !important;
+        margin: 0 auto !important;
+        color: var(--ion-color-medium-tint);
+        right: 3em;
+      }
+    }
+  }
+  
+  ion-content {
+    --background: var(--ion-color-bg-light);
+  }
+  

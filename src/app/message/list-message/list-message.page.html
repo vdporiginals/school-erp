@@ -49,13 +49,13 @@
               />
             </ion-avatar>
           </ion-col>
-          <ion-col class="ion-align-self-center" size="7">
-            <ion-label [style.margin-top.px]="30">1212321</ion-label>
+          <ion-col class="ion-align-self-start" size="7">
+            <ion-label [style.margin-top.px]="30">Trần Thị Phương</ion-label>
 
-            <p>sakfdslkfhn</p>
+            <p>{{lastMessage?.Content}}</p>
           </ion-col>
           <ion-col class="ion-align-self-center" size="2">
-            <p>5:10</p>
+            <p>{{lastMessage?.CreatedOn | date:'hh:mm'}}</p>
             <ion-badge color="warning">12</ion-badge>
           </ion-col>
         </ion-row>

@@ -1,0 +1,25 @@
+ion-header {
+  height: 107px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: #e9bc82;
+}
+.button_message {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+}
+ion-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ion-col {
+    text-align: center;
+  }
+}
+h3 {
+  color: white;
+}

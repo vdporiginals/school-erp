@@ -13,8 +13,8 @@ export class MessageService {
   getListMessage() {
     return this.http.get(this.API_URL + '/prod/user/message', {
       params: {
-        userProfileId1: '',
-        userProfileId2: '',
+        userProfileId1: '2323',
+        userProfileId2: '2053',
         pageNumber: '1',
         pageSize: '50',
       },

@@ -1,11 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>message</ion-title>
-  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <!-- <ion-back-button
+          color="dark"
+          #back
+          defaultHref="/message"
+          text=""
+          icon="arrow-back-outline"
+        >
+        </ion-back-button> -->
+      </ion-col>
+      <ion-col size="7"><h3>Trao đổi</h3></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content>
-  <ion-button [routerLink]="['list-message']">Nhắn tin</ion-button>
+  <div class="button_message">
+    <ion-button color="warning" [routerLink]="['list-message']">Nhắn tin</ion-button>
 
-  <ion-button routerLink="evaluate">Đơn xin nghỉ</ion-button>
+    <ion-button color="warning" routerLink="evaluate">Đơn xin nghỉ</ion-button>
+  </div>
 </ion-content>

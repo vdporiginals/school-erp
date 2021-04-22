@@ -16,14 +16,16 @@ import { Platform } from '@ionic/angular';
         <ion-col
           size="12"
           [class]="
-            item.IsMine == false || item.action == 'receiveMessage'
+            item.SenderUserProfileId === '2323' ||
+            item.action == 'receiveMessage'
               ? 'message-customer'
               : 'message-root'
           "
         >
           <ion-text
             [class]="
-              item.IsMine == false || item.action == 'receiveMessage'
+              item.SenderUserProfileId === '2323' ||
+              item.action == 'receiveMessage'
                 ? 'ms-customer'
                 : 'ms-root'
             "
