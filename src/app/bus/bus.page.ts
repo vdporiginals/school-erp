@@ -12,7 +12,7 @@ export class BusPage implements OnInit {
         btnLeft: {
             show: true,
             icon: 'assets/icon/icon-back-page.svg',
-            router: '/message'
+            router: 'tabs/home'
         },
         btnRight: {
             show: true,

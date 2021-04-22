@@ -15,14 +15,14 @@ export class DetailBusComponent implements OnInit {
     configHeader = {
         title: 'Chi tiết xe',
         btnLeft: {
-            show: false,
+            show: true,
             icon: 'assets/icon/icon-back-page.svg',
             router: '/message'
         },
         btnRight: {
             show: false,
             icon: 'assets/icon/icon-add.svg',
-            router: 'create'
+            router: 'bus'
         }
     }
     constructor(
