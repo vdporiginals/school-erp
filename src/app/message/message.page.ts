@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../storage/localstorage.service';
 
 @Component({
   selector: 'app-message',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message.page.scss'],
 })
 export class MessagePage implements OnInit {
+  curUser: any = this.storage.getToken();
 
-  constructor() { }
+  constructor(private storage: LocalStorageService) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
