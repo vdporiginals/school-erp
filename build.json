@@ -1,0 +1,18 @@
+{
+  "android": {
+    "debug": {
+      "keystore": "./civie.keystore",
+      "storePassword": "civie11235813",
+      "alias": "civie",
+      "password": "civie11235813",
+      "keystoreType": "jks"
+    },
+    "release": {
+      "keystore": "./civie.keystore",
+      "storePassword": "civie11235813",
+      "alias": "civie",
+      "password": "civie11235813",
+      "keystoreType": "jks"
+    }
+  }
+}
