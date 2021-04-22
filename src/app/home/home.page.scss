@@ -1,0 +1,66 @@
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding-top: 40px;
+    .header-name {
+        display: flex;
+        margin-left: 5px;
+    }
+    .header-noti {
+        text-align: center;
+        margin-right: -20px;
+        width: 50px;
+        img {
+            position: relative;
+            margin-left: -52px;
+        }
+        .noti-number {
+            position: absolute;
+            margin-top: -30px;
+            margin-top: -27px;
+            width: 15px;
+            height: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+.banner {
+    display: flex;
+    justify-content: center;
+}
+.news {
+    margin: 0px 25px;
+    .news-title {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .news-item {
+        width: 330px;
+        background-color: white;
+        box-shadow: 0px 2px 6px -2px rgb(128 128 128 / 30%);
+        border-radius: 15px;
+        padding: 3px;
+        .news-item-content {
+            margin-left: 15px;
+            margin-top: -10px;
+            .content-date {
+                font-size: 10px;
+                color: #707070;
+                margin-top: 10px;
+            }
+            .item-title {
+                color: #171717;
+                font-size: 14px;
+                margin: 0;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
