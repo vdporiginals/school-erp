@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="19.526" height="19.531" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="voice_message" data-name="voice message" transform="translate(-1737 -738)">
+    <path id="Shape_1" data-name="Shape 1" d="M1766,738h-13a16.018,16.018,0,0,0-16,16v13a16.018,16.018,0,0,0,16,16h13a16.018,16.018,0,0,0,16-16V754A16.019,16.019,0,0,0,1766,738Z" fill="#e9bc82"/>
+    <g id="_Icons_26_Send" data-name="_Icons / 26 Send" transform="translate(1749.737 750.735)" clip-path="url(#clip-path)">
+      <path id="_26_Send" data-name="26 Send" d="M19.426,1.914,12.719,18.658a1.4,1.4,0,0,1-2.512.158l-3.2-5.758a1.456,1.456,0,0,0-.544-.544L.714,9.319A1.4,1.4,0,0,1,.873,6.807L17.612.1a1.4,1.4,0,0,1,1.814,1.814Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -17,3 +17,14 @@ p {
   font-size: 14px;
   font-weight: 600;
 }
+ion-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ion-grid {
+  width: 100%;
+}
+ion-col {
+  text-align: center;
+}

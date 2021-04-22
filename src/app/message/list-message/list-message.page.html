@@ -1,5 +1,21 @@
 <ion-header>
-  <h3>Tin nhắn</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-back-button
+          color="dark"
+          #back
+          defaultHref="/message"
+          text=""
+          icon="arrow-back-outline"
+        >
+        </ion-back-button
+      ></ion-col>
+      <ion-col size="7"><h3>Tin nhắn</h3></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-grid>
+
   <ion-segment
     mode="md"
     [value]="1"

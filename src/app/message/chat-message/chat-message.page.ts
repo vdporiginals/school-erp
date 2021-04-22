@@ -22,6 +22,7 @@ import {
   switchMap,
   takeUntil,
 } from 'rxjs/operators';
+import { MessageService } from '../services/message.service';
 import { SocketService } from '../services/socket.service';
 import { MessageTextComponent } from './message-text/message-text.component';
 
@@ -73,7 +74,8 @@ export class ChatMessagePage implements OnInit {
     // private deeplink: DeeplinkService,
     // private notiStateService: NotificationStateService,
     // private renderer: Renderer2,
-    private socketService: SocketService // private messageService: MessageService
+    private socketService: SocketService,
+    private messageService: MessageService
   ) {
     //Pass current state of route
     let state = null;
@@ -91,6 +93,8 @@ export class ChatMessagePage implements OnInit {
     }
 
     route.params.subscribe((res) => {
+      console.log(res);
+
       // console.log(res);
       if (res) {
         this.currentSenderId.next(res.id);
@@ -153,8 +157,6 @@ export class ChatMessagePage implements OnInit {
     );
   }
 
-  chatWebSocket() {}
-
   templateMessage(res) {
     if (res.message || res.Content === '') {
       return;
@@ -181,14 +183,14 @@ export class ChatMessagePage implements OnInit {
     //   );
     // }
 
-    // this.messageService.getHistoryMes(id).subscribe((res) => {
-    //   res.forEach((val) => {
-    //     this.listRendererId.push(val.MessageId);
-    //   });
-    //   this.listHistory.next(res);
-    //   this.loading.closeLoading();
-    //   // console.log(this.listHistory.getValue());
-    // });
+    this.messageService.getHistoryMes(id).subscribe((res) => {
+      res.forEach((val) => {
+        this.listRendererId.push(val.MessageId);
+      });
+      this.listHistory.next(res);
+      // this.loading.closeLoading();
+      // console.log(this.listHistory.getValue());
+    });
     return true;
   }
 

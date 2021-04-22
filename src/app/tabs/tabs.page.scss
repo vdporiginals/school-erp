@@ -1,1 +1,19 @@
 
+ion-label {
+    font-size: 10px;
+    padding-top: 1px;
+  }
+  ion-tabs {
+    height: 100%;
+  }
+  ion-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .tab-active {
+    color: var(--ion-color-primary) !important;
+    filter: invert(40%) sepia(64%) saturate(6124%) hue-rotate(197deg)
+      brightness(94%) contrast(93%) !important;
+  }
+  
