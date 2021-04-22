@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import { BehaviorSubject, EMPTY, from, Observable, timer } from 'rxjs';
 import {
   catchError,
   delayWhen,
   retryWhen,
   switchMap,
-  tap
+  tap,
 } from 'rxjs/operators';
 import { webSocket } from 'rxjs/webSocket';
 import { LocalStorageService } from 'src/app/storage/localstorage.service';
@@ -33,13 +34,24 @@ export class SocketService {
     })
   );
 
-  constructor(private storage: LocalStorageService) {}
-
+  constructor(
+    private storage: LocalStorageService,
+    private loading: LoadingController
+  ) {}
+  async presentLoading() {
+    const loading = await this.loading.create({
+      message: 'Đang kết nối...',
+      duration: 5000,
+    });
+    loading.present();
+    return loading;
+  }
   /**
    * Creates a new WebSocket subject and send it to the messages subject
    * @param cfg if true the observable will be retried.
    */
   public connect(cfg: { reconnect: boolean } = { reconnect: false }): void {
+    this.presentLoading();
     if (!this.socket$ || this.socket$.closed) {
       this.socket$ = this.getNewWebSocket();
       const messages = this.socket$.pipe(
@@ -88,11 +100,13 @@ export class SocketService {
       // url: `wss://hbd51up8a8.execute-api.us-east-2.amazonaws.com/production?Authorization=5uJXjVH3BrOMxZGp_F4XrUj3Xg-8xhkYA8JA95HrdAO3Miy15IrWvFBA2Ui9x5HR2GuimTF4JuOE3-Lt93VqSdVgMog-hMBX9-PjD3vjg8oS7eTj10eEXY36lTX6dZkEAUUivyvfjxuydXIcRCuOaSqvQTZprrussdHkIVLnMQCnOZ5o5PkvmwOCT4GL6oXZF4mgIZNoV3XQxhHz4KfROOuSJmVSz9CXMlYnNoDSZFOvrRO1VwapSndAMSwD1l2bUB0pk3EpNLTCU380xdHmpUrf3nHvTYlVYdZbyAtNPEtknNWSkkXkL36HJ0P9pjLs77GXUGOpenhNSgAGpWU3HRGfOS7oIqzgBVvDc98T-dm_P7TeIzkxiPQd3i8btaFxXa3rXXaKikPo8Wuin9usi28qFl2EEe6fNNzA1qDEBFgd3f-Us32qJw59lqQRrTfSkT6QskNBDdzzUIUBaJGgP2dEIlXxvCKIu00rsNKDEdeAn0ZiWPTRFBzm-8zIC8AsFIrFmvBB8b5VHBU9ya1RpQrZCTc6jMfVHfqY6KVVoHjVeUF4GcxZF1cS6R_tiyK0FwBUS8jPPFPE4xmwyKyvvjCtpdO6QT-DLPDwSmAQPKEjBViDQVy-Dmz-fuwnuLHT`,
       openObserver: {
         next: () => {
+          this.loading.dismiss();
           console.log('[SocketService]: connection ok');
         },
       },
       closeObserver: {
         next: () => {
+          this.loading.dismiss();
           console.log('[SocketService]: connection closed');
           this.socket$ = undefined;
           this.messagesSubject$.next([]);
