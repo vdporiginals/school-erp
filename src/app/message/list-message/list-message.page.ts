@@ -1,4 +1,6 @@
+/* eslint-disable eqeqeq */
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/storage/localstorage.service';
 import { MessageService } from '../services/message.service';
 
 @Component({
@@ -8,12 +10,22 @@ import { MessageService } from '../services/message.service';
 })
 export class ListMessagePage implements OnInit {
   lastMessage: any;
-  constructor(private messageService: MessageService) {}
+  curUser: any = this.storage.getToken();
+  constructor(
+    private messageService: MessageService,
+    private storage: LocalStorageService
+  ) {}
 
   ngOnInit() {
-    this.messageService.getListMessage().subscribe((res: any) => {
-      console.log(res);
-      this.lastMessage = res.body.Payload[res.body.Payload.length - 1];
+    let receive;
+    if (this.curUser?.UserProfileId == '2323') {
+      receive = '2053';
+    } else {
+      receive = '2323';
+    }
+
+    this.messageService.getListMessage(receive).subscribe((res: any) => {
+      this.lastMessage = res.body.Payload[0];
     });
   }
 

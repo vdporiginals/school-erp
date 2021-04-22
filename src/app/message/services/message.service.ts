@@ -3,18 +3,23 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { LocalStorageService } from 'src/app/storage/localstorage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MessageService {
   API_URL = 'https://li1jm77bc8.execute-api.ap-southeast-1.amazonaws.com';
-  constructor(protected http: HttpClient) {}
-  getListMessage() {
+  constructor(
+    protected http: HttpClient,
+    private storageService: LocalStorageService
+  ) {}
+  getListMessage(receiveUser) {
+    const loginUser: any = this.storageService.getToken();
     return this.http.get(this.API_URL + '/prod/user/message', {
       params: {
-        userProfileId1: '2323',
-        userProfileId2: '2053',
+        userProfileId1: loginUser.UserProfileId,
+        userProfileId2: receiveUser,
         pageNumber: '1',
         pageSize: '50',
       },

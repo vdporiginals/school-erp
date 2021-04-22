@@ -7,12 +7,11 @@ import {
   delayWhen,
   retryWhen,
   switchMap,
-  tap,
+  tap
 } from 'rxjs/operators';
 import { webSocket } from 'rxjs/webSocket';
 import { LocalStorageService } from 'src/app/storage/localstorage.service';
 import { environment } from 'src/environments/environment';
-import { StorageService } from './storage.service';
 
 export const WS_ENDPOINT = environment.CHAT_SOCKET_ENPOINT;
 export const RECONNECT_INTERVAL = environment.reconnectInterval;
