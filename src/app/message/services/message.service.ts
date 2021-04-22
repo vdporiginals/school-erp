@@ -1,26 +1,21 @@
-// import { HttpClient } from "@angular/common/http";
-// import { Injectable } from "@angular/core";
-// import { BehaviorSubject, Observable } from "rxjs";
-// import { map } from "rxjs/operators";
-// import { BaseApiService } from "src/app/shared/services/base.service";
-// import { Message } from "../models/message.model";
+/* eslint-disable @typescript-eslint/naming-convention */
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: "root",
-// })
-// export class MessageService extends BaseApiService<Message> {
-//   numOfTextArr = new BehaviorSubject<any[]>([]);
-//   constructor(protected http: HttpClient) {
-//     super(http, "api/Message");
-//   }
-
-//   getHistoryMes(id): Observable<Message[]> {
-//     return this.http
-//       .get("api/Message?Content=%00", {
-//         params: {
-//           SenderUserId: id,
-//         },
-//       })
-//       .pipe(map((res: any) => res.Payload));
-//   }
-// }
+@Injectable({
+  providedIn: 'root',
+})
+export class MessageService {
+  API_URL = 'https://li1jm77bc8.execute-api.ap-southeast-1.amazonaws.com';
+  constructor(protected http: HttpClient) {}
+  getListMessage() {
+    return this.http.get(this.API_URL + '/prod/user/message', {
+      params: {
+        userProfileId1: '',
+        userProfileId2: '',
+        pageNumber: '1',
+        pageSize: '50',
+      },
+    });
+  }
+}

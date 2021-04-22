@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-list-message',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-message.page.scss'],
 })
 export class ListMessagePage implements OnInit {
-  constructor() {}
+  constructor(private messageService: MessageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.messageService.getListMessage().subscribe((res) => {
+      console.log(res);
+    });
+  }
+
   segmentChanged(ev) {}
 }
