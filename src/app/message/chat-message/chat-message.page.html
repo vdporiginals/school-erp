@@ -1,36 +1,31 @@
 <!-- <div class="wrapper_chat"> -->
 <ion-header>
-  <ion-grid>
-    <ion-row class="header">
-      <ion-col size="3">
-        <ion-back-button
-          #back
-          defaultHref="/tabs/message/list-message"
-          text=""
-          icon="arrow-back-outline"
-        >
-        </ion-back-button>
-      </ion-col>
-      <ion-col size="7">
-        <ion-label class="header-box">
-          <ion-text class="header-box-name" color="dark"> Tin nhắn </ion-text>
-        </ion-label>
-      </ion-col>
-      <ion-col size="2"></ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row class="header">
+            <ion-col size="3">
+                <ion-back-button [style.fontSize.px]="15" #back defaultHref="/tabs/message/list-message" text="" icon="arrow-back-outline">
+                </ion-back-button>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="header-box">
+                    <ion-text class="header-box-name" color="dark"> Tin nhắn </ion-text>
+                </ion-label>
+            </ion-col>
+            <ion-col size="3"></ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-header>
 <!-- chat -->
 <div class="chat">
-  <ion-content #messageContainer [scrollEvents]="true">
-    <ion-list #listMessageParent>
-      <!-- <ion-list-header>
+    <ion-content #messageContainer [scrollEvents]="true">
+        <ion-list #listMessageParent>
+            <!-- <ion-list-header>
           <ion-label>
             <ion-text> 20/12/2020 </ion-text>
           </ion-label>
         </ion-list-header> -->
-      <!-- message-customer -->
-      <!-- <ng-template
+            <!-- message-customer -->
+            <!-- <ng-template
           ngFor
           let-i="index"
           let-item="item"
@@ -38,15 +33,11 @@
           [ngForOf]="listHistory | async"
         >
         </ng-template> -->
-      <ng-template ngFor let-item let-i="index" [ngForOf]="listHistory | async">
-        <app-message-text
-          [item]="item"
-          [index]="i"
-          [searchTextString]="searchTextString"
-        ></app-message-text>
-      </ng-template>
-      <div #wrapperMessage></div>
-      <!-- <ng-template
+            <ng-template ngFor let-item let-i="index" [ngForOf]="listHistory | async">
+                <app-message-text [item]="item" [index]="i" [searchTextString]="searchTextString"></app-message-text>
+            </ng-template>
+            <div #wrapperMessage></div>
+            <!-- <ng-template
         ngFor
         let-item
         let-i="index"
@@ -58,7 +49,7 @@
           [searchTextString]="searchTextString"
         ></app-message-text>
       </ng-template> -->
-      <!-- <ion-item *ngFor="let item of listHistory |async;let i = index">
+            <!-- <ion-item *ngFor="let item of listHistory |async;let i = index">
           <ion-grid>
             <ion-row>
               <ion-col size="2">
@@ -89,23 +80,19 @@
             </ion-row>
           </ion-grid>
         </ion-item> -->
-    </ion-list>
-  </ion-content>
+        </ion-list>
+    </ion-content>
 </div>
 <!-- input message -->
 <ion-toolbar>
-  <ion-grid>
-    <!-- <form action=""></form> -->
-    <ion-row class="input">
-      <ion-col size="10" class="input-messsage">
-        <ion-textarea
-          placeholder="Nhập tin nhắn"
-          rows="1"
-          [(ngModel)]="textAreaInput"
-        >
-        </ion-textarea>
+    <ion-grid>
+        <!-- <form action=""></form> -->
+        <ion-row class="input">
+            <ion-col size="10" class="input-messsage">
+                <ion-textarea placeholder="Nhập tin nhắn" rows="1" [(ngModel)]="textAreaInput">
+                </ion-textarea>
 
-        <!-- <div class="input-message-file">
+                <!-- <div class="input-message-file">
               <label for="file">
                 <img
                   (click)="fileImage1.click()"
@@ -123,8 +110,8 @@
                 />
               </label>
             </div> -->
-      </ion-col>
-      <!-- <ion-col size="1" class="input-file" (click)="fileImage1.click()">
+            </ion-col>
+            <!-- <ion-col size="1" class="input-file" (click)="fileImage1.click()">
           <img src="assets/icon/chat/image.svg" alt="" />
           <input
             type="file"
@@ -136,16 +123,12 @@
           />
         </ion-col> -->
 
-      <ion-col size="2" class="input-sent">
-        <ion-icon
-          (click)="sendMessage(1)"
-          src="assets/icon/voice-message.svg"
-          [class]="textAreaInput?.length === 0 || isSended === false ? '' : 'active'"
-        >
-          Gửi
-        </ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            <ion-col size="2" class="input-sent">
+                <ion-icon (click)="sendMessage(1)" src="assets/icon/voice-message.svg" [class]="textAreaInput?.length === 0 || isSended === false ? '' : 'active'">
+                    Gửi
+                </ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-toolbar>
 <!-- </div> -->
