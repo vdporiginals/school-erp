@@ -7,6 +7,7 @@ import {
   NgModule,
 } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { LocalStorageService } from 'src/app/storage/localstorage.service';
 
 @Component({
   selector: 'app-message-text',
@@ -16,7 +17,7 @@ import { Platform } from '@ionic/angular';
         <ion-col
           size="12"
           [class]="
-            item.SenderUserProfileId === '2323' ||
+            item.ReceiverUserProfileId == curUser.UserProfileId ||
             item.action == 'receiveMessage'
               ? 'message-customer'
               : 'message-root'
@@ -24,7 +25,7 @@ import { Platform } from '@ionic/angular';
         >
           <ion-text
             [class]="
-              item.SenderUserProfileId === '2323' ||
+              item.ReceiverUserProfileId == curUser.UserProfileId ||
               item.action == 'receiveMessage'
                 ? 'ms-customer'
                 : 'ms-root'
@@ -46,6 +47,10 @@ export class MessageTextComponent {
   @Input() index;
   @Input() item;
   @Input() searchTextString;
+  curUser: any = this.storage.getToken();
 
-  constructor(private platform: Platform) {}
+  constructor(
+    private platform: Platform,
+    private storage: LocalStorageService
+  ) {}
 }

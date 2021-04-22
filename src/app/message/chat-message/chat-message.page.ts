@@ -22,6 +22,7 @@ import {
   switchMap,
   takeUntil,
 } from 'rxjs/operators';
+import { LocalStorageService } from 'src/app/storage/localstorage.service';
 import { MessageService } from '../services/message.service';
 import { SocketService } from '../services/socket.service';
 import { MessageTextComponent } from './message-text/message-text.component';
@@ -48,6 +49,7 @@ export class ChatMessagePage implements OnInit {
 
   private mutationObserver: MutationObserver;
 
+  curUser: any = this.storage.getToken();
   currenName: string;
   currentAvatar: string;
   searchTextString;
@@ -74,6 +76,7 @@ export class ChatMessagePage implements OnInit {
     // private deeplink: DeeplinkService,
     // private notiStateService: NotificationStateService,
     // private renderer: Renderer2,
+    private storage: LocalStorageService,
     private socketService: SocketService,
     private messageService: MessageService
   ) {
@@ -93,8 +96,6 @@ export class ChatMessagePage implements OnInit {
     }
 
     route.params.subscribe((res) => {
-      console.log(res);
-
       // console.log(res);
       if (res) {
         this.currentSenderId.next(res.id);
@@ -182,14 +183,17 @@ export class ChatMessagePage implements OnInit {
     //     this.notiStateService.messageCount.getValue() - +this.unread
     //   );
     // }
-
-    this.messageService.getListMessage().subscribe((res: any) => {
+    let receive;
+    if (this.curUser?.UserProfileId == '2323') {
+      receive = '2053';
+    } else {
+      receive = '2323';
+    }
+    this.messageService.getListMessage(receive).subscribe((res: any) => {
       // res.forEach((val) => {
       //   this.listRendererId.push(val.MessageId);
       // });
-      console.log(res.body.Payload);
-
-      this.listHistory.next(res.body.Payload);
+      this.listHistory.next(res.body.Payload.reverse());
     });
     // this.messageService.getHistoryMes(id).subscribe((res) => {
     //   // this.loading.closeLoading();
@@ -212,14 +216,19 @@ export class ChatMessagePage implements OnInit {
       content = this.textAreaInput;
     }
     const curDate = new Date().toISOString();
-    console.log(this.textAreaInput);
+    let receive;
+    if (this.curUser.UserProfileId == '2053') {
+      receive = '2323';
+    } else {
+      receive = '2053';
+    }
     this.unSendMessage$.next(
       [...this.unSendMessage$.getValue()].concat({
         action: 'sendMessage',
         message: content,
         createdOn: curDate,
         type,
-        userProfileId: this.currentSenderId.getValue(),
+        userProfileId: receive,
       })
     );
 
@@ -228,7 +237,7 @@ export class ChatMessagePage implements OnInit {
       message: content,
       createdOn: curDate,
       // type,
-      userProfileId: '2323',
+      userProfileId: receive,
     });
 
     setTimeout(() => {
