@@ -140,10 +140,17 @@ export class ChatMessagePage implements OnInit {
 
     this.socketService.messages$.subscribe((res: any) => {
       if (res) {
-        const arr = this.unSendMessage$.getValue().map((a) => a.createdOn);
+        const arr = this.listHistory
+          .getValue()
+          .map((a) => a.createdOn || a.CreatedOn);
+        console.log(!arr.some((a) => a === res.createdOn));
 
-        if (!arr.some((a) => a === res.createdOn) && res) {
-          this.templateMessage(res);
+        if (arr.some((a) => a === res.createdOn) === false) {
+          // this.templateMessage(res);
+          this.listHistory.next(this.listHistory.getValue().concat(res));
+          setTimeout(() => {
+            this.messageContainer.scrollToBottom(300);
+          }, 100);
         }
 
         // this.newMessage$.next();
@@ -159,9 +166,11 @@ export class ChatMessagePage implements OnInit {
   }
 
   templateMessage(res) {
-    if (res.message || res.Content === '') {
+    if (!res.message || res.Content === '') {
       return;
     }
+    console.log(res);
+
     const factory: ComponentFactory<MessageTextComponent> = this.resolver.resolveComponentFactory(
       MessageTextComponent
     );
@@ -222,15 +231,25 @@ export class ChatMessagePage implements OnInit {
     } else {
       receive = '2053';
     }
-    this.unSendMessage$.next(
-      [...this.unSendMessage$.getValue()].concat({
+
+    this.listHistory.next(
+      this.listHistory.getValue().concat({
         action: 'sendMessage',
         message: content,
         createdOn: curDate,
-        type,
+        // type,
         userProfileId: receive,
       })
     );
+    // this.unSendMessage$.next(
+    //   [...this.unSendMessage$.getValue()].concat({
+    //     action: 'sendMessage',
+    //     message: content,
+    //     createdOn: curDate,
+    //     type,
+    //     userProfileId: receive,
+    //   })
+    // );
 
     this.socketService.sendMessage({
       action: 'sendMessage',

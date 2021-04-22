@@ -45,7 +45,8 @@
           [searchTextString]="searchTextString"
         ></app-message-text>
       </ng-template>
-      <ng-template
+      <div #wrapperMessage></div>
+      <!-- <ng-template
         ngFor
         let-item
         let-i="index"
@@ -56,8 +57,7 @@
           [index]="i"
           [searchTextString]="searchTextString"
         ></app-message-text>
-      </ng-template>
-      <div #wrapperMessage></div>
+      </ng-template> -->
       <!-- <ion-item *ngFor="let item of listHistory |async;let i = index">
           <ion-grid>
             <ion-row>
