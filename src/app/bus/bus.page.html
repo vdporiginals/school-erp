@@ -1,10 +1,23 @@
 <app-hearder-evaluete [(config)]="configHeader"></app-hearder-evaluete>
-<div
-    *ngFor="let i of listBus"
-    class="item-bus"
->
-    {{i?.Name}} ---- {{i?.RegistrationNumber}}
-
-    <button [routerLink]="i.BusId">Chi tiết xe</button>
-    <button>Lộ trình</button>
-</div>
+<ion-content>
+    <div *ngFor="let i of listBus" class="item-bus">
+        <ion-card>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="3">
+                            <img src="assets/cars/car.png" alt="">
+                        </ion-col>
+                        <ion-col size="5">
+                            <p class="title">{{i?.Name}}</p>
+                            <p class="detail">{{i?.RegistrationNumber}}</p>
+                        </ion-col>
+                        <ion-col size="4">
+                            <button class="detail-car" [routerLink]="i.BusId">Chi tiết xe</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>
