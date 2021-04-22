@@ -1,0 +1,10 @@
+<app-hearder-evaluete [(config)]="configHeader"></app-hearder-evaluete>
+<div
+    *ngFor="let i of listBus"
+    class="item-bus"
+>
+    {{i?.Name}} ---- {{i?.RegistrationNumber}}
+
+    <button [routerLink]="i.BusId">Chi tiết xe</button>
+    <button>Lộ trình</button>
+</div>
