@@ -1,0 +1,25 @@
+.scroll-page {
+    overflow: auto;
+    .item {
+        margin: 20px;
+        border: 1px solid black;
+        border-radius: 15px;
+        padding: 20px;
+        .style {
+            &-active {
+                background: #979797;
+                border-radius: 5px;
+                padding: 5px;
+                text-align: center;
+                color: white;
+            }
+            &-active2 {
+                background: #e9bc82;
+                border-radius: 5px;
+                padding: 5px;
+                text-align: center;
+                color: white;
+            }
+        }
+    }
+}

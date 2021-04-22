@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'detail-message/:id',
     component: ChatMessagePage,
   },
+  {
+    path: 'evaluate',
+    loadChildren: () =>
+      import('./evaluate/evaluate.module').then((m) => m.EvaluatePageModule),
+  },
 ];
 
 @NgModule({
