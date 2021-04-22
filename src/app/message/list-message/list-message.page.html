@@ -53,7 +53,11 @@
               />
             </ion-avatar>
           </ion-col>
-          <ion-col class="ion-align-self-start" size="7">
+          <ion-col
+            [style.text-align]="'start'"
+            class="ion-align-self-start"
+            size="7"
+          >
             <ion-label [style.margin-top.px]="30">Trần Thị Phương</ion-label>
             <p>{{lastMessage?.Content}}</p>
           </ion-col>

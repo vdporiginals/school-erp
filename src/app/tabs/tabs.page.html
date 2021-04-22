@@ -1,26 +1,27 @@
 <ion-tabs>
-    <ion-tab-bar
-        id="myTabBar"
-        slot="bottom"
-    >
-        <ion-tab-button tab="home">
-            <ion-icon src="assets/icon/tab-icon/home.svg"></ion-icon>
-            <!-- <ion-label>Trang chủ</ion-label> -->
-        </ion-tab-button>
-        <ion-tab-button tab="bus">
-            <ion-icon src="assets/icon/tab-icon/bus.svg"></ion-icon>
-            <!-- <ion-label>Thông báo</ion-label> -->
-        </ion-tab-button>
-        <ion-tab-button tab="dashboard">
-            <ion-icon src="assets/icon/tab-icon/center.svg"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="message">
-            <ion-icon src="assets/icon/tab-icon/chat.svg"></ion-icon>
-            <!-- <ion-label>Tin nhắn</ion-label> -->
-        </ion-tab-button>
-        <ion-tab-button tab="profile">
-            <ion-icon src="assets/icon/tab-icon/user.svg"></ion-icon>
-            <!-- <ion-label>Profile</ion-label> -->
-        </ion-tab-button>
-    </ion-tab-bar>
+  <ion-tab-bar
+    [style.display]="(currentUrl | async )? 'none':'flex'"
+    id="myTabBar"
+    slot="bottom"
+  >
+    <ion-tab-button tab="home">
+      <ion-icon src="assets/icon/tab-icon/home.svg"></ion-icon>
+      <!-- <ion-label>Trang chủ</ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="bus">
+      <ion-icon src="assets/icon/tab-icon/bus.svg"></ion-icon>
+      <!-- <ion-label>Thông báo</ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="dashboard">
+      <ion-icon src="assets/icon/tab-icon/center.svg"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="message">
+      <ion-icon src="assets/icon/tab-icon/chat.svg"></ion-icon>
+      <!-- <ion-label>Tin nhắn</ion-label> -->
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon src="assets/icon/tab-icon/user.svg"></ion-icon>
+      <!-- <ion-label>Profile</ion-label> -->
+    </ion-tab-button>
+  </ion-tab-bar>
 </ion-tabs>
