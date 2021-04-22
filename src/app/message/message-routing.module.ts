@@ -7,15 +7,15 @@ import { MessagePage } from './message.page';
 const routes: Routes = [
   {
     path: '',
-    component: MessagePage,
-    children: [],
-  },
-  {
-    path: 'list-message',
     loadChildren: () =>
       import('./list-message/list-message.module').then(
         (m) => m.ListMessagePageModule
       ),
+  },
+  {
+    path: 'list-message',
+    component: MessagePage,
+    children: [],
   },
   {
     path: 'detail-message/:id',

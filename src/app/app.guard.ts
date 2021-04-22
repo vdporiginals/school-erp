@@ -16,7 +16,6 @@ export class AppGuard implements CanActivate {
     return from(this.storageService.checkIsAuth()).pipe(
       take(1),
       map((res: any) => {
-        console.log(res);
 
         if (res === false || !res) {
           return true;
@@ -32,7 +31,6 @@ export class AppGuard implements CanActivate {
     return from(this.storageService.checkIsAuth()).pipe(
       take(1),
       map((res: any) => {
-        console.log(res);
 
         if (res) {
           return true;
