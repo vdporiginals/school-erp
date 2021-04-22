@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, NgModule, OnChanges, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
     selector: 'app-hearder-evaluete',
@@ -16,7 +17,8 @@ export class HearderEvalueteComponent {
     ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        IonicModule
     ],
     exports: [
         HearderEvalueteComponent
