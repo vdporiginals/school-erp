@@ -17,7 +17,7 @@ export class EvaluateComponent implements OnInit {
         },
         btnRight: {
             show: true,
-            icon: 'assets/icon/icon-add.svg',
+            icon: 'assets/icon/Group 3.svg',
             router: 'create'
         }
     }
