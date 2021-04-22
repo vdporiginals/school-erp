@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable max-len */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
@@ -9,6 +10,8 @@ export const environment = {
   CHAT_SOCKET_ENPOINT:
     'wss://7o5p7mfv40.execute-api.ap-southeast-1.amazonaws.com/production',
   reconnectInterval: 5000,
+  API_URL_EVALUETE:
+    'https://li1jm77bc8.execute-api.ap-southeast-1.amazonaws.com/prod/leave',
 };
 
 /*

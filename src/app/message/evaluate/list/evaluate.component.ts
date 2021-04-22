@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { EvalueteService } from '../evaluete.service';
 
 @Component({
     selector: 'app-evaluate',
@@ -23,8 +23,8 @@ export class EvaluateComponent implements OnInit {
     }
 
     constructor(
-        private http: HttpClient,
-        public loadingController: LoadingController
+        public loadingController: LoadingController,
+        private service: EvalueteService
     ) { }
 
     listEvaluate: any = []
@@ -36,7 +36,7 @@ export class EvaluateComponent implements OnInit {
             duration: 5000
         });
         await loading.present();
-        this.http.get(`https://5f508ff82b5a260016e8bae9.mockapi.io/evaluate`).subscribe(res => {
+        this.service.list(1, 200).subscribe(res => {
             this.listEvaluate = res;
         }, () => { }, () => { loading.dismiss() })
     }

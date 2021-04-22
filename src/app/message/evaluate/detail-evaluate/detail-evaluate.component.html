@@ -5,7 +5,7 @@
         <ion-datetime
             display-format="HH:mm DD/MM/YYYY"
             picker-format="HH:mm DD/MM/YYYY"
-            [(ngModel)]="model.startDate"
+            [(ngModel)]="model.StartTime"
         ></ion-datetime>
     </ion-item>
     <ion-item>
@@ -13,14 +13,14 @@
         <ion-datetime
             display-format="HH:mm DD/MM/YYYY"
             picker-format="HH:mm DD/MM/YYYY"
-            [(ngModel)]="model.endDate"
+            [(ngModel)]="model.EndTime"
         ></ion-datetime>
     </ion-item>
     <ion-item>
         <ion-label position="stacked">Lý do:</ion-label>
         <ion-textarea
             placeholder="Nhập lí do"
-            [(ngModel)]="model.note"
+            [(ngModel)]="model.Content"
         ></ion-textarea>
     </ion-item>
     <div class="group-btn">

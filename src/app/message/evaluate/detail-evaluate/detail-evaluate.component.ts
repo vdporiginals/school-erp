@@ -4,6 +4,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AlertController, IonicModule, LoadingController } from '@ionic/angular';
+import { EvalueteService } from '../evaluete.service';
 import { HearderEvalueteModule } from '../hearder-evaluete/hearder-evaluete.component';
 
 @Component({
@@ -26,7 +27,8 @@ export class DetailEvaluateComponent implements OnInit {
         private loadingController: LoadingController,
         private route: ActivatedRoute,
         private alertCtrl: AlertController,
-        private router: Router
+        private router: Router,
+        private service: EvalueteService
     ) { }
 
     async ngOnInit() {
@@ -37,8 +39,8 @@ export class DetailEvaluateComponent implements OnInit {
         });
         await loading.present();
         const id = this.route.snapshot.params.id;
-        this.http.get(`https://5f508ff82b5a260016e8bae9.mockapi.io/evaluate/${id}`).subscribe(res => {
-            this.model = res;
+        this.service.list(1, 222).subscribe(res => {
+            this.model = res.find(x => x.LeaveId == id);
         }, () => { }, () => { loading.dismiss() })
     }
 
@@ -49,8 +51,7 @@ export class DetailEvaluateComponent implements OnInit {
             duration: 5000
         });
         await loading.present();
-        const id = this.route.snapshot.params.id;
-        this.http.put(`https://5f508ff82b5a260016e8bae9.mockapi.io/evaluate/${id}`, this.model).subscribe(async res => {
+        this.service.update(this.model.LeaveId, this.model).subscribe(async res => {
             const alert = await this.alertCtrl.create({
                 header: 'Thông báo',
                 subHeader: 'Thành công',
