@@ -10,13 +10,13 @@ export class BusPage implements OnInit {
     configHeader = {
         title: 'Danh sách xe',
         btnLeft: {
-            show: false,
+            show: true,
             icon: 'assets/icon/icon-back-page.svg',
-            router: '/message'
+            router: 'tabs/home'
         },
         btnRight: {
-            show: false,
-            icon: 'assets/icon/icon-add.svg',
+            show: true,
+            icon: 'assets/icon/add-icon.svg',
             router: 'create'
         }
     }

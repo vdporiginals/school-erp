@@ -1,8 +1,15 @@
 <ion-row class="hearder-evaluate">
-    <img *ngIf="config?.btnLeft?.show" [src]="config?.btnLeft?.icon" [routerLink]="config?.btnLeft?.router">
-    <span class="title">
+    <ion-col size="2">
+        <!-- <img *ngIf="config?.btnLeft?.show" [src]="" [routerLink]=""> -->
+        <ion-back-button text="" [defaultHref]="config?.btnLeft?.router" icon="arrow-back-outline" [style.color]="'#fff'"></ion-back-button>
+    </ion-col>
+
+    <ion-col size="8" class="title">
         {{config?.title}}
-    </span>
-    <img *ngIf="config?.btnRight?.show" [src]="config?.btnRight?.icon" [routerLink]="config?.btnRight?.router">
+    </ion-col>
+    <ion-col size="2">
+        <img *ngIf="config?.btnRight?.show" [src]="config?.btnRight?.icon" [routerLink]="config?.btnRight?.router">
+
+    </ion-col>
 
 </ion-row>

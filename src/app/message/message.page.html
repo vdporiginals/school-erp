@@ -1,26 +1,25 @@
 <ion-header>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="3">
-        <!-- <ion-back-button
-          color="dark"
-          #back
-          defaultHref="/message"
-          text=""
-          icon="arrow-back-outline"
-        >
-        </ion-back-button> -->
-      </ion-col>
-      <ion-col size="7"><h3>Trao đổi</h3></ion-col>
-      <ion-col size="2"></ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="3">
+            </ion-col>
+            <ion-col size="6">
+                <h3>Trao đổi</h3>
+            </ion-col>
+            <ion-col size="3"></ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-header>
 
 <ion-content>
-  <div class="button_message">
-    <ion-button [routerLink]="['list-message']">Nhắn tin</ion-button>
+    <div class="button_message">
+        <ion-button class="first" [routerLink]="['list-message']">
+            <img src="assets/icon/back.png" alt="" class="back">
+            <img class="icon" src="assets/icon/conversation.png" alt=""> Nhắn tin
+        </ion-button>
 
-    <ion-button routerLink="evaluate">Đơn xin nghỉ</ion-button>
-  </div>
+        <ion-button routerLink="evaluate">
+            <img src="assets/icon/back.png" alt="" class="back">
+            <img class="icon" src="assets/icon/donxin.png" alt=""> Đơn xin nghỉ</ion-button>
+    </div>
 </ion-content>
