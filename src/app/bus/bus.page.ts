@@ -16,7 +16,7 @@ export class BusPage implements OnInit {
         },
         btnRight: {
             show: true,
-            icon: 'assets/icon/icon-add.svg',
+            icon: 'assets/icon/add-icon.svg',
             router: 'create'
         }
     }

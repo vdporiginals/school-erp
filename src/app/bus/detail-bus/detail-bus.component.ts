@@ -21,7 +21,7 @@ export class DetailBusComponent implements OnInit {
         },
         btnRight: {
             show: false,
-            icon: 'assets/icon/icon-add.svg',
+            icon: 'assets/icon/add-icon.svg',
             router: '/bus'
         }
     }
