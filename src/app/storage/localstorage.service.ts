@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
   localStorage!: Storage;
   isEnabled = false;
-
+  userToken = new BehaviorSubject<any>(null);
   constructor() {
     if (!window.localStorage) {
       this.isEnabled = false;
@@ -19,7 +20,7 @@ export class LocalStorageService {
     return this.getObject('access_token');
   }
 
-  getToken() {
+  getToken(): any {
     return this.getObject('access_token');
   }
 

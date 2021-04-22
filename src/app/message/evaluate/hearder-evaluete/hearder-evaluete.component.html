@@ -1,15 +1,22 @@
-<ion-row class="hearder-evaluate">
-    <ion-col size="2">
-        <!-- <img *ngIf="config?.btnLeft?.show" [src]="" [routerLink]=""> -->
-        <ion-back-button text="" [defaultHref]="config?.btnLeft?.router" icon="arrow-back-outline" [style.color]="'#fff'"></ion-back-button>
-    </ion-col>
+<ion-row class="hearder-evaluate" *ngIf="curUser | async as curUser">
+  <ion-col size="2">
+    <!-- <img *ngIf="config?.btnLeft?.show" [src]="" [routerLink]=""> -->
+    <ion-back-button
+      text=""
+      [defaultHref]="config?.btnLeft?.router"
+      icon="arrow-back-outline"
+      [style.color]="'#fff'"
+    ></ion-back-button>
+  </ion-col>
 
-    <ion-col size="8" class="title">
-        {{config?.title}}
-    </ion-col>
-    <ion-col size="2">
-        <img *ngIf="config?.btnRight?.show" [src]="config?.btnRight?.icon" [routerLink]="config?.btnRight?.router">
-
-    </ion-col>
-
+  <ion-col size="8" class="title">
+    {{ config?.title }}
+  </ion-col>
+  <ion-col size="2" *ngIf="curUser.UserProfileId == '2323'">
+    <img
+      *ngIf="config?.btnRight?.show"
+      [src]="config?.btnRight?.icon"
+      [routerLink]="config?.btnRight?.router"
+    />
+  </ion-col>
 </ion-row>

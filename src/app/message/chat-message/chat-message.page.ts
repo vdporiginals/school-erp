@@ -8,6 +8,7 @@ import {
   ComponentFactoryResolver,
   ComponentRef,
   NgZone,
+  OnDestroy,
   OnInit,
   ViewChild,
   ViewContainerRef,
@@ -32,7 +33,7 @@ import { MessageTextComponent } from './message-text/message-text.component';
   templateUrl: './chat-message.page.html',
   styleUrls: ['./chat-message.page.scss'],
 })
-export class ChatMessagePage implements OnInit {
+export class ChatMessagePage implements OnInit, OnDestroy {
   textAreaInput = '';
   currentSenderId = new BehaviorSubject<string>(null);
   listImageBase64 = new BehaviorSubject<any[]>([]);
@@ -49,7 +50,7 @@ export class ChatMessagePage implements OnInit {
 
   private mutationObserver: MutationObserver;
 
-  curUser: any = this.storage.getToken();
+  curUser: Observable<any>;
   currenName: string;
   currentAvatar: string;
   searchTextString;
@@ -104,6 +105,7 @@ export class ChatMessagePage implements OnInit {
   }
 
   ngOnInit() {
+    this.curUser = this.storage.userToken.asObservable();
     this.listHistory.next([]);
     this.route.queryParams.subscribe((params) => {
       if (Object.keys(params).length !== 0) {
@@ -125,6 +127,9 @@ export class ChatMessagePage implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+    ;
+  }
   ionViewDidEnter() {
     this.socketService.connect();
     //Effect fetch tin nhắn mới nhất
@@ -193,7 +198,7 @@ export class ChatMessagePage implements OnInit {
     //   );
     // }
     let receive;
-    if (this.curUser?.UserProfileId == '2323') {
+    if (this.storage.getToken().UserProfileId == '2323') {
       receive = '2053';
     } else {
       receive = '2323';
@@ -226,7 +231,7 @@ export class ChatMessagePage implements OnInit {
     }
     const curDate = new Date().toISOString();
     let receive;
-    if (this.curUser.UserProfileId == '2053') {
+    if (this.storage.getToken().UserProfileId == '2053') {
       receive = '2323';
     } else {
       receive = '2053';

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LocalStorageService } from '../storage/localstorage.service';
 
 @Component({
@@ -7,9 +8,11 @@ import { LocalStorageService } from '../storage/localstorage.service';
   styleUrls: ['./message.page.scss'],
 })
 export class MessagePage implements OnInit {
-  curUser: any = this.storage.getToken();
-
+  curUser: Observable<any>;
   constructor(private storage: LocalStorageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.curUser = this.storage.userToken.asObservable();
+  }
+
 }

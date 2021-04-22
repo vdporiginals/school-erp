@@ -5,14 +5,17 @@ import {
   Pipe,
   PipeTransform,
   NgModule,
+  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageService } from 'src/app/storage/localstorage.service';
 
 @Component({
   selector: 'app-message-text',
   template: `<ion-item>
-    <ion-grid>
+    <ion-grid *ngIf="curUser | async as curUser">
       <ion-row>
         <ion-col
           size="12"
@@ -43,14 +46,20 @@ import { LocalStorageService } from 'src/app/storage/localstorage.service';
   // encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MessageTextComponent {
+export class MessageTextComponent implements OnDestroy, OnInit {
   @Input() index;
   @Input() item;
   @Input() searchTextString;
-  curUser: any = this.storage.getToken();
+  curUser: Observable<any>;
 
   constructor(
     private platform: Platform,
     private storage: LocalStorageService
   ) {}
+  ngOnInit() {
+    this.curUser = this.storage.userToken.asObservable();
+  }
+  ngOnDestroy() {
+    ;
+  }
 }

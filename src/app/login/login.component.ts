@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login(this.loginForm.value).subscribe(
       (res) => {
+        this.storage.userToken.next(res);
         // this.noti.showSuccess("Đăng nhập thành công!");
         this.storage.setObject('access_token', res);
         // this.loading.closeLoading();

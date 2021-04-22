@@ -1,34 +1,35 @@
 <app-hearder-evaluete [(config)]="configHeader"></app-hearder-evaluete>
 <div class="form-create">
-    <ion-item>
-        <ion-label>Ngày bắt đầu:</ion-label>
-        <ion-datetime
-            display-format="HH:mm DD/MM/YYYY"
-            picker-format="HH:mm DD/MM/YYYY"
-            [(ngModel)]="model.StartTime"
-        ></ion-datetime>
-    </ion-item>
-    <ion-item>
-        <ion-label>Ngày kết thúc:</ion-label>
-        <ion-datetime
-            display-format="HH:mm DD/MM/YYYY"
-            picker-format="HH:mm DD/MM/YYYY"
-            [(ngModel)]="model.EndTime"
-        ></ion-datetime>
-    </ion-item>
-    <ion-item>
-        <ion-label position="stacked">Lý do:</ion-label>
-        <ion-textarea
-            placeholder="Nhập lí do"
-            [(ngModel)]="model.Content"
-        ></ion-textarea>
-    </ion-item>
-    <div class="group-btn">
-        <button
-            class="btn-save"
-            (click)="onSave()"
-        >
-            Cập nhật
-        </button>
-    </div>
+  <ion-item>
+    <ion-label>Ngày bắt đầu:</ion-label>
+    <ion-datetime
+      display-format="HH:mm DD/MM/YYYY"
+      picker-format="HH:mm DD/MM/YYYY"
+      [(ngModel)]="model.StartTime"
+    ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ngày kết thúc:</ion-label>
+    <ion-datetime
+      display-format="HH:mm DD/MM/YYYY"
+      picker-format="HH:mm DD/MM/YYYY"
+      [(ngModel)]="model.EndTime"
+    ></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Lý do:</ion-label>
+    <ion-textarea
+      placeholder="Nhập lí do"
+      [(ngModel)]="model.Content"
+    ></ion-textarea>
+  </ion-item>
+  <div class="group-btn" *ngIf="curUser | async as curUser">
+    <button
+      class="btn-save"
+      (click)="onSave()"
+      [style.unactive]="model.Type === 2"
+    >
+      {{ curUser.UserProfileId != "2323" ? "Phê duyệt" : "Cập Nhật" }}
+    </button>
+  </div>
 </div>
