@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AlertController, IonicModule } from '@ionic/angular';
 import { HearderEvalueteModule } from '../hearder-evaluete/hearder-evaluete.component';
 
 @Component({
@@ -25,16 +27,33 @@ export class CreateEvaluateComponent implements OnInit {
     }
 
     model: any = {};
-    constructor() { }
+    constructor(
+        private http: HttpClient,
+        private route: Router,
+        private alertCtrl: AlertController
+    ) { }
 
-    ngOnInit() {
-        this.model.startDate = '1990-02-19T07:43Z';
-        this.model.endDate = '2020-02-19T07:43Z';
-        this.model.note = 'note'
-    }
+    ngOnInit() { }
 
     onSave = () => {
-        console.log(this.model);
+        this.model.status = true;
+        this.model.date = new Date().toISOString();
+        this.http.post(`https://5f508ff82b5a260016e8bae9.mockapi.io/evaluate`, this.model).subscribe(async res => {
+            const alert = await this.alertCtrl.create({
+                header: 'Thông báo',
+                subHeader: 'Thành công',
+                message: 'Thêm lịch nghỉ thành công.',
+                buttons: [
+                    {
+                        text: 'OK',
+                        handler: async (blah) => {
+                            this.route.navigateByUrl('message/evaluate');
+                        }
+                    }
+                ]
+            });
+            await alert.present();
+        })
     }
 }
 
@@ -46,7 +65,8 @@ export class CreateEvaluateComponent implements OnInit {
         CommonModule,
         RouterModule,
         FormsModule,
-        HearderEvalueteModule
+        HearderEvalueteModule,
+        IonicModule
     ],
     exports: [
         CreateEvaluateComponent

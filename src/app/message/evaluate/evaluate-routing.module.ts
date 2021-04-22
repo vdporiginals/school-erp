@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreateEvaluateComponent } from './create-evaluate/create-evaluate.component';
+import { DetailEvaluateComponent } from './detail-evaluate/detail-evaluate.component';
 import { EvaluateComponent } from './list/evaluate.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
     {
         path: 'create',
         component: CreateEvaluateComponent,
+    },
+    {
+        path: ':id',
+        component: DetailEvaluateComponent,
     }
 ];
 

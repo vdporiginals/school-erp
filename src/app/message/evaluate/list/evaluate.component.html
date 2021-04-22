@@ -3,6 +3,7 @@
     <div
         class="item"
         *ngFor="let i of listEvaluate"
+        [routerLink]="i.id"
     >
         <ion-row>
             <ion-col size="6">
