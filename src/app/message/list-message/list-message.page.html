@@ -1,101 +1,76 @@
 <ion-header>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="3">
-        <ion-back-button
+    <ion-grid>
+        <ion-row>
+            <ion-col size="3">
+                <!-- <ion-back-button
           color="dark"
           #back
           defaultHref="tabs/message"
           text=""
           icon="arrow-back-outline"
         >
-        </ion-back-button
-      ></ion-col>
-      <ion-col size="7"><h3>Tin nhắn</h3></ion-col>
-      <ion-col size="2"></ion-col>
-    </ion-row>
-  </ion-grid>
+        </ion-back-button >-->
+            </ion-col>
+            <ion-col size="6">
+                <h3>Tin nhắn</h3>
+            </ion-col>
+            <ion-col size="3"></ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <ion-segment
-    mode="md"
-    [value]="1"
-    color="warning"
-    (ionChange)="segmentChanged($event)"
-  >
-    <ion-segment-button value="1">
-      <ion-label class="segment_label">Tất cả</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="2">
-      <ion-label class="segment_label">Chưa đọc</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="3">
-      <ion-label class="segment_label">Đã đọc</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+    <ion-segment mode="md" [value]="1" color="warning" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="1">
+            <ion-label class="segment_label">Tất cả</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+            <ion-label class="segment_label">Chưa đọc</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="3">
+            <ion-label class="segment_label">Đã đọc</ion-label>
+        </ion-segment-button>
+    </ion-segment>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item
-      *ngIf="curUser?.UserProfileId == '2053'"
-      lines="none"
-      [routerLink]="['/tabs/message/list-message']"
-    >
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col class="ion-align-self-center" size="3">
-            <ion-avatar>
-              <img
-                [style.height.px]="70"
-                src="assets/avatar/IMG_20200908_165412.png"
-                alt=""
-                srcset=""
-              />
-            </ion-avatar>
-          </ion-col>
-          <ion-col
-            [style.text-align]="'start'"
-            class="ion-align-self-start"
-            size="7"
-          >
-            <ion-label [style.margin-top.px]="30">Trần Thị Phương</ion-label>
-            <p>{{lastMessage?.Content}}</p>
-          </ion-col>
-          <ion-col class="ion-align-self-center" size="2">
-            <p>{{lastMessage?.CreatedOn | date:'hh:mm'}}</p>
-            <ion-badge color="warning">12</ion-badge>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-    <ion-item
-      *ngIf="curUser?.UserProfileId == '2323'"
-      lines="none"
-      [routerLink]="['/tabs/message/list-message']"
-    >
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col class="ion-align-self-center" size="3">
-            <ion-avatar>
-              <img
-                [style.height.px]="70"
-                src="assets/avatar/IMG_20200908_165412.png"
-                alt=""
-                srcset=""
-              />
-            </ion-avatar>
-          </ion-col>
-          <ion-col class="ion-align-self-start" size="7">
-            <ion-label [style.margin-top.px]="30">Cao Thị Thanh Châu</ion-label>
+    <ion-list>
+        <ion-item *ngIf="curUser?.UserProfileId == '2053'" lines="none" [routerLink]="['/tabs/message/list-message']">
+            <ion-grid>
+                <ion-row class="ion-align-items-center">
+                    <ion-col class="ion-align-self-center" size="3">
+                        <ion-avatar>
+                            <img [style.height.px]="70" src="assets/avatar/IMG_20200908_165412.png" alt="" srcset="" />
+                        </ion-avatar>
+                    </ion-col>
+                    <ion-col [style.text-align]="'start'" class="ion-align-self-start" size="7">
+                        <ion-label [style.margin-top.px]="30">Trần Thị Phương</ion-label>
+                        <p>{{lastMessage?.Content}}</p>
+                    </ion-col>
+                    <ion-col class="ion-align-self-center" size="2">
+                        <p>{{lastMessage?.CreatedOn | date:'hh:mm'}}</p>
+                        <ion-badge color="warning">12</ion-badge>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item *ngIf="curUser?.UserProfileId == '2323'" lines="none" [routerLink]="['/tabs/message/list-message']">
+            <ion-grid>
+                <ion-row class="ion-align-items-center">
+                    <ion-col class="ion-align-self-center" size="3">
+                        <ion-avatar>
+                            <img [style.height.px]="70" src="assets/avatar/IMG_20200908_165412.png" alt="" srcset="" />
+                        </ion-avatar>
+                    </ion-col>
+                    <ion-col class="ion-align-self-start" size="7">
+                        <ion-label [style.margin-top.px]="30">Cao Thị Thanh Châu</ion-label>
 
-            <p>{{lastMessage?.Content}}</p>
-          </ion-col>
-          <ion-col class="ion-align-self-center" size="2">
-            <p>{{lastMessage?.CreatedOn | date:'hh:mm'}}</p>
-            <ion-badge color="warning">12</ion-badge>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-list>
+                        <p>{{lastMessage?.Content}}</p>
+                    </ion-col>
+                    <ion-col class="ion-align-self-center" size="2">
+                        <p>{{lastMessage?.CreatedOn | date:'hh:mm'}}</p>
+                        <ion-badge color="warning">12</ion-badge>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
 </ion-content>
