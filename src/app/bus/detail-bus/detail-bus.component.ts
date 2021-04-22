@@ -17,12 +17,12 @@ export class DetailBusComponent implements OnInit {
         btnLeft: {
             show: true,
             icon: 'assets/icon/icon-back-page.svg',
-            router: '/message'
+            router: ''
         },
         btnRight: {
             show: false,
             icon: 'assets/icon/icon-add.svg',
-            router: 'bus'
+            router: '/bus'
         }
     }
     constructor(
