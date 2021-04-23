@@ -1,5 +1,5 @@
 <ion-row class="hearder-evaluate" *ngIf="curUser | async as curUser">
-  <ion-col size="2">
+  <ion-col size="3">
     <!-- <img *ngIf="config?.btnLeft?.show" [src]="" [routerLink]=""> -->
     <ion-back-button
       text=""
@@ -9,10 +9,10 @@
     ></ion-back-button>
   </ion-col>
 
-  <ion-col size="8" class="title">
+  <ion-col size="6" class="title">
     {{ config?.title }}
   </ion-col>
-  <ion-col size="2" *ngIf="curUser.UserProfileId == '2323'">
+  <ion-col size="3" *ngIf="curUser.UserProfileId == '2323'">
     <img
       *ngIf="config?.btnRight?.show"
       [src]="config?.btnRight?.icon"

@@ -59,9 +59,7 @@ export class DetailEvaluateComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    ;
-  }
+  ngOnDestroy() {}
   onSave = async () => {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
@@ -88,7 +86,7 @@ export class DetailEvaluateComponent implements OnInit, OnDestroy {
             {
               text: 'OK',
               handler: async (blah) => {
-                this.router.navigateByUrl('message/evaluate');
+                this.router.navigateByUrl('/tabs/message/evaluate');
               },
             },
           ],

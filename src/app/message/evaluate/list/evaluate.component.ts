@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { EvalueteService } from '../evaluete.service';
 
@@ -17,19 +18,28 @@ export class EvaluateComponent implements OnInit {
     },
     btnRight: {
       show: true,
-      icon: 'assets/icon/Group 3.svg',
+      icon: 'assets/icon/Group-4598.svg',
       router: 'create',
     },
   };
 
   constructor(
     public loadingController: LoadingController,
-    private service: EvalueteService
-  ) {}
+    private service: EvalueteService,
+    private route: ActivatedRoute
+  ) {
+    this.route.params.subscribe(() => {
+      this.init();
+    });
+  }
 
   listEvaluate: any = [];
 
   async ngOnInit() {
+    this.init();
+  }
+
+  async init() {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Vui lòng chờ...',

@@ -17,7 +17,7 @@ export class CreateEvaluateComponent implements OnInit {
     btnLeft: {
       show: true,
       icon: 'assets/icon/icon-back-page.svg',
-      router: '/message/evaluate',
+      router: '/tabs/message/evaluate',
     },
     btnRight: {
       show: false,
@@ -50,7 +50,7 @@ export class CreateEvaluateComponent implements OnInit {
           {
             text: 'OK',
             handler: async (blah) => {
-              this.route.navigateByUrl('message/evaluate');
+              this.route.navigateByUrl('/tabs/message/evaluate');
             },
           },
         ],
