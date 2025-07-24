@@ -46,8 +46,8 @@ importers:
         specifier: ~0.1102.4
         version: 0.1102.19(@angular/compiler-cli@11.2.14(@angular/compiler@11.2.14)(typescript@4.0.8))(karma@5.2.3)(protractor@7.0.0)(typescript@4.0.8)
       '@angular-eslint/builder':
-        specifier: 2.0.2
-        version: 2.0.2(@angular/cli@11.2.19)(eslint@7.32.0)(typescript@4.0.8)
+        specifier: 3.0.0
+        version: 3.0.0(@angular/cli@11.2.19)(eslint@7.32.0)(typescript@4.0.8)
       '@angular-eslint/eslint-plugin':
         specifier: 2.0.2
         version: 2.0.2(@angular/compiler@11.2.14)(eslint-plugin-import@2.22.1(@typescript-eslint/parser@4.16.1(eslint@7.32.0)(typescript@4.0.8))(eslint@7.32.0))(eslint-plugin-jsdoc@30.7.6(eslint@7.32.0))(eslint-plugin-prefer-arrow@1.2.2(eslint@7.32.0))(eslint@7.32.0)(typescript@4.0.8)
@@ -218,8 +218,8 @@ packages:
     resolution: {integrity: sha512-bZ9NS5PgoVfetRC6WeQBHCY5FqPZ9y2TKHUo12sOB2YSL3tgWgh1oXyP8PtX34gasqsLjNULxEQsAQYEsiX/qQ==}
     engines: {node: ^12.14.1 || >=14.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
 
-  '@angular-eslint/builder@2.0.2':
-    resolution: {integrity: sha512-bs5ITrQNEaVD+oonrpJN17VSqZ1+094NIsvfkaQ4wQb22sc7BkDAMB2lcfhXgyH1mN+0bw1SP7DYuHSo3+r4Jw==}
+  '@angular-eslint/builder@3.0.0':
+    resolution: {integrity: sha512-Ry7xCfTAPoWS2yd+lWtIywoQZOR4FS4sN6lXmigNdmsya1Ixk0aZw3s8kJ4JLpUe64ANQv5bdPwEd7++4cqkaA==}
     peerDependencies:
       '@angular/cli': '>= 11.2.0 < 12.0.0'
       eslint: '*'
@@ -5902,7 +5902,7 @@ snapshots:
       ora: 5.4.1
       rxjs: 6.6.7
 
-  '@angular-eslint/builder@2.0.2(@angular/cli@11.2.19)(eslint@7.32.0)(typescript@4.0.8)':
+  '@angular-eslint/builder@3.0.0(@angular/cli@11.2.19)(eslint@7.32.0)(typescript@4.0.8)':
     dependencies:
       '@angular/cli': 11.2.19
       eslint: 7.32.0
