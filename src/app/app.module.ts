@@ -6,26 +6,20 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { AppGuard } from './app.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({
-    declarations: [AppComponent, LoginComponent],
-    imports: [
-        BrowserModule,
+@NgModule({ declarations: [AppComponent, LoginComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
         IonicStorageModule.forRoot(),
         IonicModule.forRoot(),
-        HttpClientModule,
         AppRoutingModule,
         FormsModule,
-        ReactiveFormsModule,
-    ],
-    providers: [
+        ReactiveFormsModule], providers: [
         AppGuard,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ],
-    bootstrap: [AppComponent]
-})
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}
