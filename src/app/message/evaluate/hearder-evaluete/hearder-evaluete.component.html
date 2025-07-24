@@ -1,22 +1,26 @@
-<ion-row class="hearder-evaluate" *ngIf="curUser | async as curUser">
-  <ion-col size="3">
-    <!-- <img *ngIf="config?.btnLeft?.show" [src]="" [routerLink]=""> -->
-    <ion-back-button
-      text=""
-      [defaultHref]="config?.btnLeft?.router"
-      icon="arrow-back-outline"
-      [style.color]="'#fff'"
-    ></ion-back-button>
-  </ion-col>
-
-  <ion-col size="6" class="title">
-    {{ config?.title }}
-  </ion-col>
-  <ion-col size="3" *ngIf="curUser.UserProfileId == '2323'">
-    <img
-      *ngIf="config?.btnRight?.show"
-      [src]="config?.btnRight?.icon"
-      [routerLink]="config?.btnRight?.router"
-    />
-  </ion-col>
-</ion-row>
+@if (curUser | async; as curUser) {
+  <ion-row class="hearder-evaluate">
+    <ion-col size="3">
+      <!-- <img *ngIf="config?.btnLeft?.show" [src]="" [routerLink]=""> -->
+      <ion-back-button
+        text=""
+        [defaultHref]="config?.btnLeft?.router"
+        icon="arrow-back-outline"
+        [style.color]="'#fff'"
+      ></ion-back-button>
+    </ion-col>
+    <ion-col size="6" class="title">
+      {{ config?.title }}
+    </ion-col>
+    @if (curUser.UserProfileId == '2323') {
+      <ion-col size="3">
+        @if (config?.btnRight?.show) {
+          <img
+            [src]="config?.btnRight?.icon"
+            [routerLink]="config?.btnRight?.router"
+            />
+        }
+      </ion-col>
+    }
+  </ion-row>
+}

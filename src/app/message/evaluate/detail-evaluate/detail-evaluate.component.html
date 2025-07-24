@@ -23,13 +23,15 @@
       [(ngModel)]="model.Content"
     ></ion-textarea>
   </ion-item>
-  <div class="group-btn" *ngIf="curUser | async as curUser">
-    <button
-      class="btn-save"
-      (click)="onSave()"
-      [style.unactive]="model.Type === 2"
-    >
-      {{ curUser.UserProfileId != "2323" ? "Phê duyệt" : "Cập Nhật" }}
-    </button>
-  </div>
+  @if (curUser | async; as curUser) {
+    <div class="group-btn">
+      <button
+        class="btn-save"
+        (click)="onSave()"
+        [style.unactive]="model.Type === 2"
+        >
+        {{ curUser.UserProfileId != "2323" ? "Phê duyệt" : "Cập Nhật" }}
+      </button>
+    </div>
+  }
 </div>

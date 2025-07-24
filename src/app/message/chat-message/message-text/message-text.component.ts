@@ -15,33 +15,35 @@ import { LocalStorageService } from 'src/app/storage/localstorage.service';
 @Component({
     selector: 'app-message-text',
     template: `<ion-item>
-    <ion-grid *ngIf="curUser | async as curUser">
-      <ion-row>
-        <ion-col
-          size="12"
+      @if (curUser | async; as curUser) {
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              size="12"
           [class]="
             item.ReceiverUserProfileId == curUser.UserProfileId ||
             item.action == 'receiveMessage'
               ? 'message-customer'
               : 'message-root'
           "
-        >
-          <ion-text
+              >
+              <ion-text
             [class]="
               item.ReceiverUserProfileId == curUser.UserProfileId ||
               item.action == 'receiveMessage'
                 ? 'ms-customer'
                 : 'ms-root'
             "
-          >
-            <p>
-              {{ item.message || item.Content }}
-            </p>
-          </ion-text>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item> `,
+                >
+                <p>
+                  {{ item.message || item.Content }}
+                </p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      }
+    </ion-item>`,
     styleUrls: ['./message-text.component.scss'],
     // encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
