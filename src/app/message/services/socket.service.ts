@@ -11,7 +11,7 @@ import {
   switchMap,
   tap,
 } from 'rxjs/operators';
-import { webSocket } from 'rxjs/webSocket';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { LocalStorageService } from 'src/app/storage/localstorage.service';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +24,7 @@ export const RECONNECT_INTERVAL = environment.reconnectInterval;
   providedIn: 'root',
 })
 export class SocketService {
-  private socket$;
+  private socket$: WebSocketSubject<any>;
   private accessToken: any = this.storage.getToken();
   private messagesSubject$: BehaviorSubject<any[]> = new BehaviorSubject([]);
   public messages$ = this.messagesSubject$.pipe(
