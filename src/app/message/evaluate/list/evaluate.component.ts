@@ -4,9 +4,10 @@ import { LoadingController } from '@ionic/angular';
 import { EvalueteService } from '../evaluete.service';
 
 @Component({
-  selector: 'app-evaluate',
-  templateUrl: './evaluate.component.html',
-  styleUrls: ['./evaluate.component.scss'],
+    selector: 'app-evaluate',
+    templateUrl: './evaluate.component.html',
+    styleUrls: ['./evaluate.component.scss'],
+    standalone: false
 })
 export class EvaluateComponent implements OnInit {
   configHeader: any = {

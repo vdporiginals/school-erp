@@ -7,9 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { HearderEvalueteModule } from 'src/app/message/evaluate/hearder-evaluete/hearder-evaluete.component';
 
 @Component({
-  selector: 'app-detail-bus',
-  templateUrl: './detail-bus.component.html',
-  styleUrls: ['./detail-bus.component.scss'],
+    selector: 'app-detail-bus',
+    templateUrl: './detail-bus.component.html',
+    styleUrls: ['./detail-bus.component.scss'],
+    standalone: false
 })
 export class DetailBusComponent implements OnInit {
   configHeader: any = {

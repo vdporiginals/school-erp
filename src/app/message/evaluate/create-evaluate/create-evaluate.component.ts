@@ -7,9 +7,10 @@ import { EvalueteService } from '../evaluete.service';
 import { HearderEvalueteModule } from '../hearder-evaluete/hearder-evaluete.component';
 
 @Component({
-  selector: 'app-create-evaluate',
-  templateUrl: './create-evaluate.component.html',
-  styleUrls: ['./create-evaluate.component.scss'],
+    selector: 'app-create-evaluate',
+    templateUrl: './create-evaluate.component.html',
+    styleUrls: ['./create-evaluate.component.scss'],
+    standalone: false
 })
 export class CreateEvaluateComponent implements OnInit {
   configHeader: any = {

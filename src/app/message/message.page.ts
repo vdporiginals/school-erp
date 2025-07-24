@@ -3,9 +3,10 @@ import { Observable } from 'rxjs';
 import { LocalStorageService } from '../storage/localstorage.service';
 
 @Component({
-  selector: 'app-message',
-  templateUrl: './message.page.html',
-  styleUrls: ['./message.page.scss'],
+    selector: 'app-message',
+    templateUrl: './message.page.html',
+    styleUrls: ['./message.page.scss'],
+    standalone: false
 })
 export class MessagePage implements OnInit {
   curUser: Observable<any>;

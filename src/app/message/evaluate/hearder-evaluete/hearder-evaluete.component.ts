@@ -6,9 +6,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageService } from 'src/app/storage/localstorage.service';
 
 @Component({
-  selector: 'app-hearder-evaluete',
-  templateUrl: './hearder-evaluete.component.html',
-  styleUrls: ['./hearder-evaluete.component.scss'],
+    selector: 'app-hearder-evaluete',
+    templateUrl: './hearder-evaluete.component.html',
+    styleUrls: ['./hearder-evaluete.component.scss'],
+    standalone: false
 })
 export class HearderEvalueteComponent implements OnDestroy,OnInit{
   curUser: Observable<any> ;

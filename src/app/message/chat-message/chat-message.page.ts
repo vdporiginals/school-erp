@@ -29,9 +29,10 @@ import { SocketService } from '../services/socket.service';
 import { MessageTextComponent } from './message-text/message-text.component';
 
 @Component({
-  selector: 'app-chat-message',
-  templateUrl: './chat-message.page.html',
-  styleUrls: ['./chat-message.page.scss'],
+    selector: 'app-chat-message',
+    templateUrl: './chat-message.page.html',
+    styleUrls: ['./chat-message.page.scss'],
+    standalone: false
 })
 export class ChatMessagePage implements OnInit, OnDestroy {
   textAreaInput = '';

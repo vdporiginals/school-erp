@@ -14,9 +14,10 @@ import { EvalueteService } from '../evaluete.service';
 import { HearderEvalueteModule } from '../hearder-evaluete/hearder-evaluete.component';
 
 @Component({
-  selector: 'app-detail-evaluate',
-  templateUrl: './detail-evaluate.component.html',
-  styleUrls: ['./detail-evaluate.component.scss'],
+    selector: 'app-detail-evaluate',
+    templateUrl: './detail-evaluate.component.html',
+    styleUrls: ['./detail-evaluate.component.scss'],
+    standalone: false
 })
 export class DetailEvaluateComponent implements OnInit, OnDestroy {
   curUser: Observable<any>;

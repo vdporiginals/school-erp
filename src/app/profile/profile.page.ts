@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from '../storage/localstorage.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss'],
+    selector: 'app-profile',
+    templateUrl: './profile.page.html',
+    styleUrls: ['./profile.page.scss'],
+    standalone: false
 })
 export class ProfilePage implements OnInit {
   constructor(private storage: LocalStorageService, private router: Router) {}

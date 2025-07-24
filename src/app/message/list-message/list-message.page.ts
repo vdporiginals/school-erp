@@ -5,9 +5,10 @@ import { LocalStorageService } from 'src/app/storage/localstorage.service';
 import { MessageService } from '../services/message.service';
 
 @Component({
-  selector: 'app-list-message',
-  templateUrl: './list-message.page.html',
-  styleUrls: ['./list-message.page.scss'],
+    selector: 'app-list-message',
+    templateUrl: './list-message.page.html',
+    styleUrls: ['./list-message.page.scss'],
+    standalone: false
 })
 export class ListMessagePage implements OnInit, OnDestroy {
   lastMessage: any;

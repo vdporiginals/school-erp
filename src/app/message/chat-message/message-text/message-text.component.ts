@@ -13,8 +13,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalStorageService } from 'src/app/storage/localstorage.service';
 
 @Component({
-  selector: 'app-message-text',
-  template: `<ion-item>
+    selector: 'app-message-text',
+    template: `<ion-item>
     <ion-grid *ngIf="curUser | async as curUser">
       <ion-row>
         <ion-col
@@ -42,9 +42,10 @@ import { LocalStorageService } from 'src/app/storage/localstorage.service';
       </ion-row>
     </ion-grid>
   </ion-item> `,
-  styleUrls: ['./message-text.component.scss'],
-  // encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrls: ['./message-text.component.scss'],
+    // encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class MessageTextComponent implements OnDestroy, OnInit {
   @Input() index;

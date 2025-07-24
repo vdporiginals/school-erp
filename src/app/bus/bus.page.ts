@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bus',
-  templateUrl: './bus.page.html',
-  styleUrls: ['./bus.page.scss'],
+    selector: 'app-bus',
+    templateUrl: './bus.page.html',
+    styleUrls: ['./bus.page.scss'],
+    standalone: false
 })
 export class BusPage implements OnInit {
   configHeader: any = {
