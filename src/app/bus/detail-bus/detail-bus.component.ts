@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Route } from '@angular/compiler/src/core';
 import { Component, NgModule, OnInit } from '@angular/core';
-import { ActivatedRoute, CanActivate, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { HearderEvalueteModule } from 'src/app/message/evaluate/hearder-evaluete/hearder-evaluete.component';
 

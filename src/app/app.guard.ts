@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { from, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { LocalStorageService } from './storage/localstorage.service';
@@ -7,7 +7,7 @@ import { LocalStorageService } from './storage/localstorage.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AppGuard implements CanActivate {
+export class AppGuard  {
   constructor(
     public storageService: LocalStorageService,
     public router: Router
