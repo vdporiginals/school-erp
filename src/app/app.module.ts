@@ -12,21 +12,20 @@ import { AppGuard } from './app.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule,
-    IonicStorageModule.forRoot(),
-    IonicModule.forRoot(),
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  providers: [
-    AppGuard,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, LoginComponent],
+    imports: [
+        BrowserModule,
+        IonicStorageModule.forRoot(),
+        IonicModule.forRoot(),
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
+    providers: [
+        AppGuard,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

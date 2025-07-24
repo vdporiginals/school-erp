@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "defaultProject": "app",
   "newProjectRoot": "projects",
   "projects": {
     "app": {
@@ -165,7 +164,9 @@
   },
   "cli": {
     "analytics": "68ef8172-f390-48bc-943c-576b66ca26bc",
-    "defaultCollection": "@ionic/angular-toolkit"
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ]
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

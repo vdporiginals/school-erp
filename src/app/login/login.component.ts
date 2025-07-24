@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../storage/localstorage.service';
 import { LoginService } from './login.service';
@@ -11,9 +11,9 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private loginService: LoginService,
     private router: Router,
     private storage: LocalStorageService
